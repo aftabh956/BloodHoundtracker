@@ -1,18 +1,18 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import { moderateScale } from 'react-native-size-matters';
-import { apiHeader, windowWidth } from '../Utillity/utils';
+import {moderateScale} from 'react-native-size-matters';
+import {apiHeader, windowWidth} from '../Utillity/utils';
 import CustomImage from './CustomImage';
 import CustomText from './CustomText';
 import Color from '../Assets/Utilities/Color';
 import moment from 'moment';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useNavigation } from '@react-navigation/native';
-import { Get, Post } from '../Axios/AxiosInterceptorFunction';
-import { Token } from '@stripe/stripe-react-native';
-import { FONTS } from '../Config/theme';
+import {useState} from 'react';
+import {useEffect} from 'react';
+import {useSelector} from 'react-redux';
+import {useNavigation} from '@react-navigation/native';
+import {Get, Post} from '../Axios/AxiosInterceptorFunction';
+import {Token} from '@stripe/stripe-react-native';
+import {FONTS} from '../Config/theme';
 import navigationService from '../navigationService';
 
 const ChatCard = ({
@@ -40,7 +40,7 @@ const ChatCard = ({
         width: windowWidth * 0.95,
         alignSelf: 'center',
         flexDirection: 'row',
-        paddingVertical: moderateScale(5, 0.4),
+        paddingVertical: moderateScale(9, 0.4),
       }}>
       <View style={styles.image}>
         <CustomImage
@@ -82,15 +82,15 @@ const ChatCard = ({
           isBold
           style={{
             fontSize: moderateScale(9, 0.3),
-            color: Color.themeBlack,
+            color: Color.lightGrey,
             textAlign: 'right',
           }}>
-          {' '}
+          {'20 : 12'}
+          {/* {' '}
           {moment.duration(moment().diff(date)).asDays() >= 6
             ? moment(date).format('ll')
-            : moment(date).fromNow()}
+            : moment(date).fromNow()} */}
         </CustomText>
-
         {item?.undread > 0 && (
           <View
             style={{
@@ -101,8 +101,8 @@ const ChatCard = ({
                 userRole == 'Qbid Member'
                   ? Color.blue
                   : userRole == 'Qbid Negotiator'
-                    ? Color.themeColor
-                    : Color.black,
+                  ? Color.themeColor
+                  : Color.blue,
               justifyContent: 'center',
               alignItems: 'center',
               overflow: 'hidden',

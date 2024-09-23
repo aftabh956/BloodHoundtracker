@@ -5,6 +5,7 @@ import {
   View,
   FlatList,
   ScrollView,
+  Image,
 } from 'react-native';
 import {windowHeight, windowWidth} from '../Utillity/utils';
 import {FONTS, SIZES} from '../Config/theme';
@@ -18,32 +19,42 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Icon} from 'native-base';
 import {homeListData} from '../Config/dummyData';
 import Card from '../Components/Card';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Color from '../Assets/Utilities/Color';
+import navigationService from '../navigationService';
+import {useNavigation} from '@react-navigation/native';
 
 const GroupDeatils = () => {
-
+  const navigation = useNavigation();
   return (
     <>
       <CustomStatusBar
         backgroundColor={Color.background_color}
         barStyle={'dark-content'}
       />
+      <CustomHeader
+        text={'Newyork Electronic E-Bikes'}
+        leftIcon
+        RightIcon={true}
+        isImage={true}
+        iconstyle={{left: 0}}
+      />
       <ScrollView style={styles.container}>
-        <CustomHeader text={'TimeLine'} leftIcon RightIcon={true} />
-
         <View style={styles.banner}>
           <CustomImage
             source={require('../Assets/Images/Bike.png')}
             style={{
-              //   alignSelf: 'center',
               width: '100%',
               height: '100%',
             }}
           />
         </View>
-        <View style={{
-          paddingHorizontal:moderateScale(20,.6),
-          paddingTop:moderateScale(10,.6)
-        }}>
+        <View
+          style={{
+            paddingHorizontal: moderateScale(20, 0.6),
+            paddingTop: moderateScale(10, 0.6),
+          }}>
           <CustomText isBold style={styles.btn_text}>
             Newyork Electronic E-Bikes
           </CustomText>
@@ -64,27 +75,29 @@ const GroupDeatils = () => {
             </TouchableOpacity>
           </View>
         </View>
-        <View style={styles.post_card}>
-          <View style={styles.post_row}>
-            <View style={styles.post_image}>
-              <CustomImage
-                style={{height: '100%', width: '100%'}}
-                source={require('../Assets/Images/dummyman1.png')}
+        <TouchableOpacity onPress={() => navigation.navigate('EditGroup')}>
+          <View style={styles.post_card}>
+            <View style={styles.post_row}>
+              <View style={styles.post_image}>
+                <CustomImage
+                  style={{height: '100%', width: '100%'}}
+                  source={require('../Assets/Images/dummyman1.png')}
+                />
+              </View>
+              <SearchContainer
+                placeholder={'name your group '}
+                width={windowWidth * 0.7}
+              />
+              <Icon
+                style={{marginTop: moderateScale(13, 0.6)}}
+                name={'images-outline'}
+                as={Ionicons}
+                size={moderateScale(25, 0.6)}
+                color={Color.textColor}
               />
             </View>
-            <SearchContainer
-              placeholder={'name your group '}
-              width={windowWidth * 0.6}
-            />
-            <Icon
-              style={{marginTop: moderateScale(13, 0.6)}}
-              name={'images-outline'}
-              as={Ionicons}
-              size={moderateScale(25, 0.6)}
-              color={Color.textColor}
-            />
           </View>
-        </View>
+        </TouchableOpacity>
         <CustomText isBold style={styles.post_text}>
           new posts
         </CustomText>
@@ -117,7 +130,7 @@ const styles = StyleSheet.create({
   },
   main_view: {
     paddingHorizontal: SIZES.padding,
-    paddingVertical: SIZES.padding,
+    paddingVertical: SIZES.padding2 * 0.5,
   },
   btn_view: {
     width: '100%',
@@ -162,7 +175,7 @@ const styles = StyleSheet.create({
     borderRadius: moderateScale(5, 0.6),
   },
   post_text: {
-    ...FONTS.Medium19,
+    ...FONTS.Medium17,
     color: Color.mediumGray,
     paddingHorizontal: moderateScale(20, 0.6),
     paddingTop: moderateScale(15, 0.6),

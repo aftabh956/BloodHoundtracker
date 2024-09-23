@@ -58,12 +58,11 @@ const SearchContainer = ({
               name={'search'}
               as={FontAwesome}
               size={moderateScale(17, 0.3)}
-              color={Color.textColor}
+              color={Color.lightGrey}
               // style={{backgroundColor : 'red'}}
             />
-
             <TextInput
-              placeholder="search here"
+              placeholder="Search"
               placeholderTextColor={Color.themeLightGray}
               numberOfLines={1}
               value={data}
@@ -75,7 +74,9 @@ const SearchContainer = ({
                   marginLeft: moderateScale(10, 0.3),
                   width: windowWidth * 0.6,
                   color: Color.black,
-                  paddingBottom:moderateScale(3,.6)
+                  height: '100%',
+                  bottom: moderateScale(2),
+                  paddingBottom: moderateScale(3, 0.6),
                   // marginTop:moderateScale(5,.6)
                   // height:windowHeight*0.06
                   // backgroundColor : 'red'
@@ -92,7 +93,7 @@ const SearchContainer = ({
                 fontSize: moderateScale(12, 0.6),
                 color: Color.lightGrey,
               }}>
-            { placeholder ?placeholder :'type here'}
+              {placeholder ? placeholder : 'type here'}
             </CustomText>
           </>
         )}
@@ -108,8 +109,8 @@ const styles = ScaledSheet.create({
     // justifyContent: "space-between",
     marginTop: moderateScale(10, 0.3),
     // borderWidth: 0.5,
-    borderRadius:20,
-    borderWidth:1,
+    borderRadius: 20,
+    borderWidth: 1,
     borderColor: Color.mediumGray,
     backgroundColor: Color.white,
     borderRadius: moderateScale(5, 0.3),
@@ -122,7 +123,6 @@ const styles = ScaledSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-
     elevation: 5,
     alignItems: 'center',
   },

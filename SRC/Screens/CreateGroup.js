@@ -20,13 +20,14 @@ import {color} from 'native-base/lib/typescript/theme/styled-system';
 import {Icon} from 'native-base';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import PrivacyModal from '../Components/PrivacyModal';
+import navigationService from '../navigationService';
 
 const CreateGroup = () => {
   const [groupName, setGroupName] = useState('');
   const [privacy, setPrivacy] = useState('');
   const [visibility, setvisiblity] = useState('');
   const [selectedType, setSelectedType] = useState('');
-  const [selectedCategoryType, setSelectedCategoryType] = useState('')
+  const [selectedCategoryType, setSelectedCategoryType] = useState('');
   const privacyArray = ['ffaadf', 'fafaf ', 'fdadsfadsf'];
   const [rbRef, setRef] = useState(null);
 
@@ -66,18 +67,18 @@ const CreateGroup = () => {
           <TouchableOpacity
             onPress={() => {
               rbRef.open();
-              setSelectedType('privacy')
+              setSelectedType('Private');
             }}
             style={styles.dropdown}>
             <View style={{paddingHorizontal: moderateScale(15, 0.6)}}>
               <CustomText
                 style={{
-                  color: Color.lightGrey,
+                  color: Color.black,
                   ...FONTS.Regular14,
 
                   paddingTop: moderateScale(5, 0.6),
                 }}>
-                privacy
+                Private
               </CustomText>
               <CustomText
                 style={{
@@ -124,11 +125,11 @@ const CreateGroup = () => {
             Visibility
           </CustomText>
           <TouchableOpacity
-          onPress={() => {
-            rbRef.open();
-            setSelectedType('visibility')
-          }}
-          style={styles.dropdown}>
+            onPress={() => {
+              rbRef.open();
+              setSelectedType('visibility');
+            }}
+            style={styles.dropdown}>
             <View style={{paddingHorizontal: moderateScale(15, 0.6)}}>
               <CustomText
                 style={{
@@ -164,13 +165,19 @@ const CreateGroup = () => {
           width={windowWidth * 0.85}
           height={windowHeight * 0.05}
           marginTop={windowHeight * 0.15}
-          onPress={() => {}}
+          onPress={() => navigationService.navigate('GroupDeatils')}
           bgColor={Color.themeColor}
           borderRadius={moderateScale(5, 0.3)}
           elevation
         />
         {/* <PrivacyModal  rbRef={rbRef} setRef={setRef}/> */}
-        <PrivacyModal rbRef={rbRef} setRef={setRef}  selectedType={selectedType} setSelectedCategoryType={setSelectedCategoryType}  selectedCategoryType={selectedCategoryType}/>
+        <PrivacyModal
+          rbRef={rbRef}
+          setRef={setRef}
+          selectedType={selectedType}
+          setSelectedCategoryType={setSelectedCategoryType}
+          selectedCategoryType={selectedCategoryType}
+        />
       </ScrollView>
     </SafeAreaView>
   );

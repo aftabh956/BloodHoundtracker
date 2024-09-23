@@ -50,38 +50,34 @@ const Numberverfication = () => {
       <CustomText style={styles.text}>
         We send OPT number on your phone
       </CustomText>
-
-     
-        <CodeField
-          placeholder={'4'}
-          ref={ref}
-          value={code}
-          onChangeText={setCode}
-          cellCount={CELL_COUNT}
-          rootStyle={styles.codeFieldRoot}
-          keyboardType="number-pad"
-          textContentType="oneTimeCode"
-          renderCell={({index, symbol, isFocused}) => (
-            <View
-              onLayout={getCellOnLayoutHandler(index)}
-              key={index}
-              style={[styles.cellRoot, isFocused && styles.focusCell]}>
-              <CustomText
-                style={[styles.cellText, isFocused && {color: Color.black}]}>
-                {symbol || (isFocused ? <Cursor /> : null)}
-              </CustomText>
-            </View>
-          )}
-        />
-       
+      <CodeField
+        placeholder={'4'}
+        ref={ref}
+        value={code}
+        onChangeText={setCode}
+        cellCount={CELL_COUNT}
+        rootStyle={styles.codeFieldRoot}
+        keyboardType="number-pad"
+        textContentType="oneTimeCode"
+        renderCell={({index, symbol, isFocused}) => (
+          <View
+            onLayout={getCellOnLayoutHandler(index)}
+            key={index}
+            style={[styles.cellRoot, isFocused && styles.focusCell]}>
+            <CustomText
+              style={[styles.cellText, isFocused && {color: Color.black}]}>
+              {symbol || (isFocused ? <Cursor /> : null)}
+            </CustomText>
+          </View>
+        )}
+      />
       <CustomButton
         text={'Verify'}
         textColor={Color.white}
-        width={windowWidth * 0.8}
+        width={windowWidth * 0.7}
         height={windowHeight * 0.06}
-        marginTop={moderateScale(30, 0.3)}
-        onPress={() => {
-        }}
+        marginTop={moderateScale(40, 0.3)}
+        onPress={() => {}}
         bgColor={Color.themeColor}
         borderRadius={moderateScale(30, 0.3)}
       />
@@ -118,13 +114,13 @@ const styles = StyleSheet.create({
   codeFieldRoot: {
     marginTop: moderateScale(20, 0.3),
     marginBottom: moderateScale(15, 0.3),
-    width: windowWidth * 0.6,
+    width: windowWidth * 0.55,
     marginLeft: 'auto',
     marginRight: 'auto',
   },
   cellRoot: {
-    width: moderateScale(40, 0.3),
-    height: moderateScale(40, 0.3),
+    width: moderateScale(45, 0.3),
+    height: moderateScale(45, 0.3),
     justifyContent: 'center',
     alignItems: 'center',
     borderColor: '#ccc',

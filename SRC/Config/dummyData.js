@@ -9,6 +9,7 @@ export const homeListData = [
     shares: '36 Shared',
     images: require('../Assets/Images/scoter_image.png'),
     profile_image: require('../Assets/Images/dummyman1.png'),
+    public_profile: false,
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ export const homeListData = [
     shares: '36 Shared',
     images: require('../Assets/Images/scoter_image.png'),
     profile_image: require('../Assets/Images/dummyman1.png'),
+    public_profile: true,
   },
   {
     id: 3,
@@ -31,6 +33,7 @@ export const homeListData = [
     shares: '36 Shared',
     images: require('../Assets/Images/scoter_image.png'),
     profile_image: require('../Assets/Images/dummyman1.png'),
+    public_profile: true,
   },
 ];
 
@@ -44,6 +47,28 @@ export const comentlist = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     likes: 25,
     replay: '12  replay',
+    subComents: [
+      {
+        id: 1,
+        profile_image: require('../Assets/Images/dummyman1.png'),
+        name: 'Prisha Mclaughlin',
+        time: '52 minutes ago',
+        coment:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        likes: 25,
+        replay: '12  replay',
+      },
+      {
+        id: 2,
+        profile_image: require('../Assets/Images/dummyman1.png'),
+        name: 'Prisha Mclaughlin',
+        time: '52 minutes ago',
+        coment:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        likes: 25,
+        replay: '12  replay',
+      },
+    ],
   },
   {
     id: 2,
@@ -54,6 +79,28 @@ export const comentlist = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     likes: 25,
     replay: '12  replay',
+    subComents: [
+      {
+        id: 1,
+        profile_image: require('../Assets/Images/dummyman1.png'),
+        name: 'Prisha Mclaughlin',
+        time: '52 minutes ago',
+        coment:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        likes: 25,
+        replay: '12  replay',
+      },
+      {
+        id: 2,
+        profile_image: require('../Assets/Images/dummyman1.png'),
+        name: 'Prisha Mclaughlin',
+        time: '52 minutes ago',
+        coment:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        likes: 25,
+        replay: '12  replay',
+      },
+    ],
   },
   {
     id: 3,
@@ -64,6 +111,28 @@ export const comentlist = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     likes: 25,
     replay: '12  replay',
+    subComents: [
+      {
+        id: 1,
+        profile_image: require('../Assets/Images/dummyman1.png'),
+        name: 'Prisha Mclaughlin',
+        time: '52 minutes ago',
+        coment:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        likes: 25,
+        replay: '12  replay',
+      },
+      {
+        id: 2,
+        profile_image: require('../Assets/Images/dummyman1.png'),
+        name: 'Prisha Mclaughlin',
+        time: '52 minutes ago',
+        coment:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        likes: 25,
+        replay: '12  replay',
+      },
+    ],
   },
 ];
 export const chatlist = [

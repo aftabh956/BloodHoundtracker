@@ -31,7 +31,6 @@ const GetStarted = () => {
           eiusmod
         </CustomText>
       </View>
-
       <CustomButton
         text={" let's get started"}
         textColor={Color.white}

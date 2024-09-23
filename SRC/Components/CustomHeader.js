@@ -1,45 +1,89 @@
-import { Icon } from 'native-base';
+import {Icon} from 'native-base';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { moderateScale } from 'react-native-size-matters';
+import {StyleSheet, View} from 'react-native';
+import {moderateScale} from 'react-native-size-matters';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import { useDispatch } from 'react-redux';
+import {useDispatch} from 'react-redux';
 import Color from '../Assets/Utilities/Color';
-import { setUserLogoutAuth } from '../Store/slices/auth';
-import { setUserLogOut } from '../Store/slices/common';
-import { windowWidth } from '../Utillity/utils';
+import {setUserLogoutAuth} from '../Store/slices/auth';
+import {setUserLogOut} from '../Store/slices/common';
+import {windowWidth} from '../Utillity/utils';
 import CustomText from './CustomText';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { FONTS } from '../Config/theme';
-import { useNavigation } from '@react-navigation/native';
+import {FONTS} from '../Config/theme';
+import {useNavigation} from '@react-navigation/native';
+import CustomImage from './CustomImage';
 
-const CustomHeader = ({ leftIcon, RightIcon, isCamer, text, style }) => {
-  const dispatch = useDispatch()
+const CustomHeader = ({
+  leftIcon,
+  RightIcon,
+  iconstyle,
+  isCamer,
+  isImage,
+  text,
+  style,
+}) => {
+  const dispatch = useDispatch();
   const navigation = useNavigation();
 
   return (
     <View style={[styles.header, style && style]}>
-      {leftIcon &&
+      {leftIcon && (
         <Icon
           name={isCamer ? 'camera' : 'arrow-back'}
           as={isCamer ? Feather : MaterialIcons}
           size={moderateScale(22, 0.3)}
           color={Color.lightGrey}
-          style={{
-            position: 'absolute',
-            left: moderateScale(10, 0.3),
-          }}
+          style={[
+            {
+              position: 'absolute',
+            },
+            iconstyle,
+          ]}
           onPress={() => {
-            navigation.goBack()
+            navigation.goBack();
           }}
         />
-      }
-      <CustomText style={styles.text}>{text}</CustomText>
-      {RightIcon &&
+      )}
+      {isImage ? (
+        <View
+          style={{
+            flexDirection: 'row',
+            width: '70%',
+            alignItems: 'center',
+            justifyContent: 'center',
+            alignSelf: 'center',
+          }}>
+          <View
+            style={{
+              width: moderateScale(30, 0.6),
+              height: moderateScale(30, 0.6),
+            }}>
+            <CustomImage
+              source={require('../Assets/Images/Bike.png')}
+              style={{
+                width: '100%',
+                height: '100%',
+              }}
+            />
+          </View>
+          <CustomText
+            style={[
+              styles.text,
+              {...FONTS.Medium15, marginLeft: moderateScale(10, 0.6)},
+            ]}>
+            {text}
+          </CustomText>
+        </View>
+      ) : (
+        <CustomText style={styles.text}>{text}</CustomText>
+      )}
+
+      {RightIcon && (
         <Icon
-          name='message-processing-outline'
+          name="message-processing-outline"
           as={MaterialCommunityIcons}
           size={moderateScale(22, 0.3)}
           color={Color.themePink}
@@ -48,12 +92,12 @@ const CustomHeader = ({ leftIcon, RightIcon, isCamer, text, style }) => {
             right: moderateScale(10, 0.3),
           }}
           onPress={() => {
-            navigation.navigate('MessageList')
+            navigation.navigate('MessageList');
             // dispatch(setUserLogOut())
             // dispatch(setUserLogoutAuth())
           }}
         />
-      }
+      )}
     </View>
   );
 };
@@ -67,7 +111,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'tranparent',
     justifyContent: 'center',
     marginHorizontal: moderateScale(10, 0.6),
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   text: {
     color: Color.lightGrey,

@@ -99,8 +99,7 @@ const CreatePost = () => {
             ...FONTS.Medium11,
             color: Color.lightGrey,
             paddingHorizontal: moderateScale(5, 0.6),
-            // paddingTop: moderateScale(2, 0.6),
-            width: windowWidth * 0.8,
+            width: windowWidth * 0.9,
           }}>
           In Miami, my electric trail motorbike, painted in striking blue, has
           gone missing, leaving only a scratched fuel tank as a clue to its
@@ -238,7 +237,7 @@ const styles = StyleSheet.create({
   row_container: {
     flexDirection: 'row',
     width: windowWidth * 0.9,
-    paddingHorizontal: moderateScale(10, 0.6),
+    // paddingHorizontal: moderateScale(10, 0.6),
   },
   imageContainer: {
     height: windowHeight * 0.06,
@@ -276,7 +275,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Color.lightGrey,
     borderRadius: moderateScale(5, 0.6),
-    paddingVertical: moderateScale(5, 0.6),
+    paddingVertical: moderateScale(10, 0.6),
     paddingHorizontal: moderateScale(10, 0.6),
   },
 });

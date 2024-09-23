@@ -1,39 +1,17 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import {
-  ActivityIndicator,
-  ImageBackground,
-  Platform,
-  Text,
-  ToastAndroid,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {ScrollView} from 'native-base';
+import React, {useState} from 'react';
+import {ActivityIndicator, TouchableOpacity, View} from 'react-native';
+import {moderateScale, ScaledSheet} from 'react-native-size-matters';
 import Color from '../Assets/Utilities/Color';
+import CustomButton from '../Components/CustomButton';
+import CustomImage from '../Components/CustomImage';
 import CustomStatusBar from '../Components/CustomStatusBar';
 import CustomText from '../Components/CustomText';
-import CustomImage from '../Components/CustomImage';
-import {apiHeader, windowHeight, windowWidth} from '../Utillity/utils';
-import {moderateScale, ScaledSheet} from 'react-native-size-matters';
-import TextInputWithTitle from '../Components/TextInputWithTitle';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import Fontisto from 'react-native-vector-icons/Fontisto';
-import CustomButton from '../Components/CustomButton';
-import {Icon, ScrollView} from 'native-base';
-import {
-  setMilageRing,
-  setUserLogin,
-  setUserToken,
-  setWalkThrough,
-} from '../Store/slices/auth';
-import {useDispatch, useSelector} from 'react-redux';
-import DropDownSingleSelect from '../Components/DropDownSingleSelect';
-import navigationService from '../navigationService';
-import CustomDropDownMultiSelect from '../Components/CustomDropDownMultiSelect';
 import ImagePickerModal from '../Components/ImagePickerModal';
-import {setSelectedRole, setUserData} from '../Store/slices/common';
-import {validateEmail} from '../Config';
-import {Post} from '../Axios/AxiosInterceptorFunction';
-import {useNavigation} from '@react-navigation/native';
+import TextInputWithTitle from '../Components/TextInputWithTitle';
+import navigationService from '../navigationService';
+import {windowHeight, windowWidth} from '../Utillity/utils';
 
 const Signup = () => {
   const navigation = useNavigation();
@@ -198,7 +176,8 @@ const Signup = () => {
           textColor={Color.white}
           width={windowWidth * 0.8}
           height={windowHeight * 0.06}
-          marginTop={moderateScale(10, 0.3)}
+          marginTop={moderateScale(30, 0.3)}
+          marginBottom={moderateScale(10, 0.6)}
           onPress={() => {
             // Register();
             navigation.navigate('HomeScreen');
@@ -338,5 +317,6 @@ const styles = ScaledSheet.create({
     width: windowWidth * 0.78,
     fontSize: moderateScale(12, 0.6),
     textAlign: 'center',
+    marginTop: moderateScale(6, 0.6),
   },
 });

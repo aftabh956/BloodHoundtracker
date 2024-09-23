@@ -33,7 +33,6 @@ const LoginScreen = () => {
         backgroundColor={Color.white}
         barStyle={'dark-content'}
       />
-
       <ScrollView
         showsVerticalScrollIndicator={false}
         removeClippedSubviews={true}
@@ -69,6 +68,8 @@ const LoginScreen = () => {
             placeholder={'Hello@Zachry.com'}
             setText={setEmail}
             value={email}
+            righticonName={'checkcircle'}
+            righticonType={AntDesign}
             viewHeight={0.06}
             viewWidth={0.85}
             inputWidth={0.8}
@@ -101,13 +102,13 @@ const LoginScreen = () => {
             marginBottom={moderateScale(10, 0.3)}
           />
         </View>
-        {/* <CustomText
+        <CustomText
           onPress={() => {
-            navigationService.navigate('EnterPhone', {fromForgot: true});
+            navigationService.navigate('Numberverfication', {fromForgot: true});
           }}
           style={styles.txt3}>
           {'Forgot Password?'}
-        </CustomText> */}
+        </CustomText>
 
         <CustomButton
           text={
@@ -194,12 +195,18 @@ const styles = ScaledSheet.create({
     color: Color.dar,
     fontSize: moderateScale(12, 0.6),
     paddingHorizontal: moderateScale(10, 0.6),
+    marginVertical: moderateScale(10, 0.6),
   },
 
   txt3: {
     fontSize: moderateScale(10, 0.6),
-    alignSelf: 'center',
     fontWeight: '600',
+    textAlign: 'right',
+    alignSelf: 'flex-end',
+    paddingRight: moderateScale(10, 0.6),
+    textDecorationLine: 'underline',
+    textDecorationColor: Color.blue,
+    color: Color.blue,
   },
 
   container2: {
@@ -236,6 +243,7 @@ const styles = ScaledSheet.create({
     width: windowWidth * 0.78,
     fontSize: moderateScale(12, 0.6),
     textAlign: 'center',
+    marginTop: moderateScale(6, 0.6),
   },
   line: {
     height: windowHeight * 0.002,

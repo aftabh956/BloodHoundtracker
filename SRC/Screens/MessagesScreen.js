@@ -1,32 +1,32 @@
-import { StyleSheet, Text, View } from 'react-native';
-import React, { useCallback, useEffect } from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+import React, {useCallback, useEffect} from 'react';
 import ScreenBoiler from '../Components/ScreenBoiler';
 import moment from 'moment';
-import { FlatList, Icon } from 'native-base';
-import { moderateScale, ScaledSheet } from 'react-native-size-matters';
+import {FlatList, Icon} from 'native-base';
+import {moderateScale, ScaledSheet} from 'react-native-size-matters';
 import NotificationCard from '../Components/NotificationCard';
-import { apiHeader, windowHeight, windowWidth } from '../Utillity/utils';
+import {apiHeader, windowHeight, windowWidth} from '../Utillity/utils';
 import Color from '../Assets/Utilities/Color';
 import LinearGradient from 'react-native-linear-gradient';
 import CustomText from '../Components/CustomText';
 import SearchContainer from '../Components/SearchContainer';
-import { useState } from 'react';
+import {useState} from 'react';
 import ChatCard from '../Components/ChatCard';
-import { useDispatch, useSelector } from 'react-redux';
-import { GiftedChat } from 'react-native-gifted-chat';
+import {useDispatch, useSelector} from 'react-redux';
+import {GiftedChat} from 'react-native-gifted-chat';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import CustomImage from '../Components/CustomImage';
-import { useNavigation } from '@react-navigation/native';
-import { Get, Post } from '../Axios/AxiosInterceptorFunction';
+import {useNavigation} from '@react-navigation/native';
+import {Get, Post} from '../Axios/AxiosInterceptorFunction';
+import Feather from 'react-native-vector-icons/Feather';
 
-const MessagesScreen = ({ props, navigation }) => {
+const MessagesScreen = ({props, navigation}) => {
   const [messages, setMessages] = useState([]);
   useEffect(() => {
     setMessages([
-
       {
         _id: 1,
-        text: "Hi,. It is very nice to meet you.",
+        text: 'Hi,. It is very nice to meet you.',
         createdAt: new Date(),
         user: {
           _id: 1,
@@ -44,22 +44,19 @@ const MessagesScreen = ({ props, navigation }) => {
           avatar: 'https://placeimg.com/140/140/any',
         },
       },
-    ])
-  }, [])
+    ]);
+  }, []);
 
   const onSend = useCallback((messages = []) => {
     setMessages(previousMessages =>
       GiftedChat.append(previousMessages, messages),
-    )
-  }, [])
+    );
+  }, []);
 
   return (
     <ScreenBoiler
-      statusBarBackgroundColor={
-        Color.lightGrey
-      }
+      statusBarBackgroundColor={Color.lightGrey}
       statusBarContentStyle={'light-content'}>
-
       <View style={styles.row}>
         <Icon
           onPress={() => {
@@ -68,7 +65,7 @@ const MessagesScreen = ({ props, navigation }) => {
           as={Ionicons}
           name="arrow-back"
           size={moderateScale(22, 0.6)}
-          color={Color.mediumGray}
+          color={Color.darkBlue}
         />
         <View style={styles.image}>
           <CustomImage
@@ -82,20 +79,27 @@ const MessagesScreen = ({ props, navigation }) => {
         </View>
         <View
           style={{
-            width: windowWidth * 0.7,
+            width: windowWidth * 0.5,
           }}>
           <CustomText isBold style={styles.text}>
             john
           </CustomText>
-          {/* <CustomText style={styles.text2}>from</CustomText> */}
+          <CustomText style={styles.text2}>online</CustomText>
         </View>
+        <Icon
+          name="phone-call"
+          as={Feather}
+          size={moderateScale(22, 0.6)}
+          style={{marginRight: moderateScale(10, 0.6)}}
+          color={Color.blue}
+        />
+        <Icon name="video" as={Feather} size={moderateScale(22, 0.6)} />
       </View>
       <GiftedChat
         textInputStyle={{
           color: Color.black,
           marginTop: moderateScale(5, 0.3),
         }}
-
         placeholderTextColor={Color.lightGrey}
         messages={messages}
         isTyping={false}
@@ -128,8 +132,9 @@ const styles = ScaledSheet.create({
     overflow: 'hidden',
   },
   text: {
-    fontSize: moderateScale(12, 0.6),
+    fontSize: moderateScale(13, 0.6),
     paddingTop: moderateScale(5, 0.6),
+    color: Color.darkBlue,
   },
   row: {
     width: windowWidth,
@@ -137,10 +142,11 @@ const styles = ScaledSheet.create({
     paddingHorizontal: moderateScale(10, 0.6),
     flexDirection: 'row',
     alignItems: 'center',
-    paddingTop: windowHeight * 0.03
+    paddingTop: windowHeight * 0.03,
   },
   text2: {
-    fontSize: moderateScale(10, 0.6),
+    fontSize: moderateScale(11, 0.6),
     marginTop: moderateScale(-3, 0.6),
+    color: Color.blue,
   },
 });

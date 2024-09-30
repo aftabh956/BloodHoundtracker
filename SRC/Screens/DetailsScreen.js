@@ -354,7 +354,7 @@ const DetailScreen = () => {
                           <View
                             style={[
                               styles.coment_view,
-                              {marginLeft: moderateScale(20, 0.6)},
+                              {marginLeft: moderateScale(20, 0.6), width:'90%' ,height:windowHeight*0.225} ,
                             ]}>
                             <View style={styles.profile_view}>
                               <View
@@ -483,10 +483,12 @@ const styles = StyleSheet.create({
   },
   coment_view: {
     width: '100%',
-    height: windowHeight * 0.2,
+    height: windowHeight * 0.21,
     borderRadius: SIZES.padding,
     borderWidth: 1,
     marginVertical: SIZES.padding - 10,
     borderColor: Color.veryLightGray,
+    paddingHorizontal:moderateScale(10,.6),
+    paddingVertical:moderateScale(10,.6),
   },
 });
